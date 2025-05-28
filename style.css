@@ -136,8 +136,8 @@ span{
 
 .home-img img{
     position: relative;
-    width: 300px;         /* Đảm bảo chiều rộng */
-    height: 300px;        /* Đảm bảo chiều cao bằng chiều rộng */
+    width: 30%;         /* Đảm bảo chiều rộng */
+    height: 30%;        /* Đảm bảo chiều cao bằng chiều rộng */
     object-fit: cover;    /* Cắt ảnh cho vừa khung */
     border-radius: 50%;   /* Bo tròn thành hình tròn */
     overflow: hidden;
