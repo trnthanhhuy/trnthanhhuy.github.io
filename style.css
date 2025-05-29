@@ -135,11 +135,11 @@ span{
 }
 
 .home-img img{
-    position: relative;
-    width: 30%;         /* Đảm bảo chiều rộng */
-    height: 30%;        /* Đảm bảo chiều cao bằng chiều rộng */
-    object-fit: cover;    /* Cắt ảnh cho vừa khung */
-    border-radius: 50%;   /* Bo tròn thành hình tròn */
+    width: 30rem;        
+    height: 30rem;      
+    position: relative;      
+    object-fit: cover;   
+    border-radius: 50%;  
     overflow: hidden;
 }
 
@@ -202,9 +202,9 @@ span{
 }
 
 .typing-text span::before{
-    content: "software Developer";
+    content: "Học sinh";
     color: #b74b4b;
-    animation: words 20s infinite;
+    animation: words 10s infinite;
 }
 
 .typing-text span::after{
@@ -226,8 +226,14 @@ span{
 
 @keyframes words{
     0%, 30%{
-        content: "Học sinh";
-    }
+        from {
+            width: 0;
+            content: "Học sinh";
+        }
+        to {
+            width: 100%;
+        } 
+    }  
     31%, 60%{
         content: "Developer";
     }
