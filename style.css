@@ -9,7 +9,50 @@
     outline: none;
     font-family: 'Poppins', sans-serif;
 }
+body {
+margin: 0;
+padding: 0;
+overflow: hidden; /* tránh scrollbar nếu không cần */
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #111;
+  }
+
+  .animated-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    padding: 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    background: linear-gradient(90deg, red, black, red);
+    background-size: 300% 300%;
+    animation: moveBorder 3s linear infinite;
+
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  @keyframes moveBorder {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 50% 100%;
+    }
+  }
 html{
     font-size: 62.5%;
 }
@@ -35,18 +78,6 @@ header{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-}
-
-.logo{
-    font-size: 3rem;
-    color: #b74b4b;
-    font-weight: 800;
-    cursor: pointer;
-    transition: 0.5s ease;
-}
-
-.logo:hover{
-    transform: scale(1.1);
 }
 
 nav a{
@@ -111,7 +142,7 @@ section{
 }
 
 .home .home-content h1{
-    font-size: 6rem;
+    font-size: clamp(24px, 6vw, 48px);
     font-weight: 700;
     line-height: 1.3;
 }
@@ -121,7 +152,7 @@ span{
 }
 
 .home-content h3{
-    font-size: 4rem;
+    font-size: clamp(20px, 6vw, 40px);
     margin-bottom: 1rem;
     font-weight: 700;
 }
@@ -134,13 +165,12 @@ span{
     border-radius: 50%;
 }
 
-.home-img img{
-    width: 30rem;        
-    height: 30rem;      
+.home-img img{          
     position: relative;      
     object-fit: cover;   
     border-radius: 50%;  
     overflow: hidden;
+    width: clamp(50px, 30vw, 300px);
 }
 
 .home-img img:hover{
@@ -226,33 +256,14 @@ span{
 
 @keyframes words{
     0%, 30%{
-        from {
-            width: 0;
             content: "Học sinh";
-        }
-        to {
-            width: 100%;
         } 
-    }  
     31%, 60%{
-        from {
-            width: 0;
-            content: "Developer";
+            content: "Developer";   
         }
-        to {
-            width: 100%;
-        } 
-        
-    }
     61%, 100%{
-        from {
-            width: 0;
-           content: "Junior Coder";
-        }
-        to {
-            width: 100%;
+            content: "Junior Coder";
         } 
-    }
 }
 
 @media (max-width: 1000px){
@@ -280,4 +291,3 @@ span{
         margin-top: 4rem;
     }
 }
-
