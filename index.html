@@ -12,6 +12,23 @@
 <body>
     <div class="background"></div>
     <div class="animated-border"></div>
+    <div id="clock" style="font-size: 40px; text-align: center; color: black"></div>
+    <div id="date" style="font-size: 40px; text-align: center; color: black"></div>
+    <div class="clock-wrapper">
+
+    <script>
+        async function updateClock() {
+        const res = await fetch("https://timeapi.io/api/Time/current/zone?timeZone=Asia/Ho_Chi_Minh");
+        const data = await res.json();
+        const { hour, minute, seconds } = data;
+
+        document.getElementById("clock").textContent = 
+            `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        }
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
     <section class="home">
         <div class="home-img">
             <img src="main.jpg" alt="">
@@ -42,7 +59,7 @@
                 <div class="discord-container">
                 <img src="${avatarUrl}" class="avatar" alt="Avatar">
                 <div class="info">
-                    <div class="username">${user.display_name} - @${user.username}</div>
+                    <div class="username">@${user.username}</div>
                     <div class="status">${status === "offline" ? "Last seen recently" : "Online now 🟢"}</div>
                 </div>
                 </div>
