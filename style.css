@@ -235,10 +235,23 @@ span{
         } 
     }  
     31%, 60%{
-        content: "Developer";
+        from {
+            width: 0;
+            content: "Developer";
+        }
+        to {
+            width: 100%;
+        } 
+        
     }
     61%, 100%{
-        content: "Junior Coder";
+        from {
+            width: 0;
+           content: "Junior Coder";
+        }
+        to {
+            width: 100%;
+        } 
     }
 }
 
