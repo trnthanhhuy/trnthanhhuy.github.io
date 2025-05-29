@@ -23,6 +23,34 @@
                 <a href="https://www.instagram.com/trnthanhhuy/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://discord.com/users/trnthanhhuy"><i class="fa-brands fa-discord"></i></a>
             </div>
+            <!-- HTML -->
+        <div id="discord-profile" class="discord-card">
+        Loading Discord info...
+        </div>
+        <script>
+        const userId = '959443985091416064';
+        fetch(`https://api.lanyard.rest/v1/users/${userId}`)
+            .then(res => res.json())
+            .then(data => {
+            const user = data.data.discord_user;
+            const status = data.data.discord_status;
+            const avatarUrl = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+
+            document.getElementById("discord-profile").innerHTML = `
+                <div class="discord-container">
+                <img src="${avatarUrl}" class="avatar" alt="Avatar">
+                <div class="info">
+                    <div class="username">${user.display_name} - @${user.username}</div>
+                    <div class="status">${status === "offline" ? "Last seen recently" : "Online now 🟢"}</div>
+                </div>
+                </div>
+            `;
+            })
+            .catch(err => {
+            document.getElementById("discord-profile").innerText = "Failed to load Discord data 😢";
+            console.error(err);
+            });
+        </script>
         </div>
     </section>
 </body>
