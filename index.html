@@ -76,5 +76,30 @@
         </script>
         </div>
     </section>
+<script>
+  let context = new (window.AudioContext || window.webkitAudioContext)();
+  let source;
+
+  async function playHiddenAudio() {
+    const response = await fetch('doro.mp3'); 
+    const arrayBuffer = await response.arrayBuffer();
+    const audioBuffer = await context.decodeAudioData(arrayBuffer);
+
+    source = context.createBufferSource();
+    source.buffer = audioBuffer;
+    source.connect(context.destination);
+    source.start(0);
+  }
+
+  function handleInteraction() {
+    playHiddenAudio();
+    document.removeEventListener("mousemove", handleInteraction);
+    document.removeEventListener("wheel", handleInteraction);
+  }
+
+  document.addEventListener("mousemove", handleInteraction);
+  document.addEventListener("wheel", handleInteraction);
+</script>
+
 </body>
 </html>

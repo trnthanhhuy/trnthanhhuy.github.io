@@ -46,7 +46,7 @@ body {
     border-radius: 10px;
     box-sizing: border-box;
 
-    background: linear-gradient(90deg, white,pink, red);
+    background: linear-gradient(90deg, white,pink, black);
     background-size: 300% 300%;
     animation: moveBorder 3s linear infinite;
 
@@ -95,13 +95,7 @@ input[type="range"] {
   flex: 1;
 }
 
-.controls button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
+
 
 body{
     width: 100%;
@@ -109,9 +103,10 @@ body{
     overflow-x: hidden;
     color: white;
 }
-header{
-    align-items: center
+#clock, #date{
+    display: none;
 }
+
 nav a{
     font-size: 1.8rem;
     color: white;
@@ -133,7 +128,7 @@ nav a.active{
         display: none;
         top: 0;
         right: 0;
-        width: 40%;
+        width: 10%;
         border-left: 3px solid #b74b4b;
         border-bottom: 3px solid #b74b4b;
         border-bottom-left-radius: 2rem;
@@ -255,9 +250,11 @@ span{
 }
 
 .typing-text{
-    font-size: 34px;
+    font-size: 2.5rem;
     font-weight: 600;
-    min-width: 280px;
+    color: #b74b4b;
+    position: relative;
+    display: inline-block;
 }
 
 .typing-text span{
@@ -276,24 +273,26 @@ span{
     width: calc(100% + 8px);
     height: 100%;
     border-left: 3px solid
-    right: -8;
-    animation: cursor 0.6s infinite;
 }
 @keyframes cursor{
     to{
         border-left: 3px solid #b74b4b;
-    }
+        animation: typing-text 0.8s infinite 
+        }
 }
 
 @keyframes words{
     0%, 30%{
             content: "Học sinh";
+            animation: typing-text 2s infinite;
         } 
     31%, 60%{
             content: "Developer";   
+            animation: typing 2s infinite;
         }
     61%, 100%{
             content: "Junior Coder";
+            animation: typing 2s infinite;
         } 
 }
 
