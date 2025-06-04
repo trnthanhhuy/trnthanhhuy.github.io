@@ -46,7 +46,7 @@ body {
     border-radius: 10px;
     box-sizing: border-box;
 
-    background: linear-gradient(90deg, red,blue,pink, red);
+    background: linear-gradient(90deg, white,pink, red);
     background-size: 300% 300%;
     animation: moveBorder 3s linear infinite;
 
@@ -279,7 +279,6 @@ span{
     right: -8;
     animation: cursor 0.6s infinite;
 }
-
 @keyframes cursor{
     to{
         border-left: 3px solid #b74b4b;
