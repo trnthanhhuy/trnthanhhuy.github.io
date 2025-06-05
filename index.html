@@ -41,8 +41,9 @@
             <h3 class="typing-text">Tôi là một <span></span></h3>
             <p></p>
             <div class="social-icons">
-                <a href="https://github.com/trnthanhhuy"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.facebook.com/trnthanhhuy/"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/trnthanhhuy/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://github.com/trnthanhhuy"><i class="fa-brands fa-github"></i></a> 
                 <a href="https://discord.com/users/trnthanhhuy"><i class="fa-brands fa-discord"></i></a>
                 <a href="https://t.me/trnthanhhuy"><i class="fa-brands fa-telegram"></i></a>
             </div>
@@ -76,30 +77,16 @@
         </script>
         </div>
     </section>
-<script>
-  let context = new (window.AudioContext || window.webkitAudioContext)();
-  let source;
-
-  async function playHiddenAudio() {
-    const response = await fetch('doro.mp3'); 
-    const arrayBuffer = await response.arrayBuffer();
-    const audioBuffer = await context.decodeAudioData(arrayBuffer);
-
-    source = context.createBufferSource();
-    source.buffer = audioBuffer;
-    source.connect(context.destination);
-    source.start(0);
-  }
-
-  function handleInteraction() {
-    playHiddenAudio();
-    document.removeEventListener("mousemove", handleInteraction);
-    document.removeEventListener("wheel", handleInteraction);
-  }
-
-  document.addEventListener("mousemove", handleInteraction);
-  document.addEventListener("wheel", handleInteraction);
-</script>
+    <audio id="bgm" preload="auto">
+    <source src="doro.mp3" type="audio/mpeg" volume="0.1">
+    </audio>
+    <script>
+        document.getElementById("bgm").volume = 0.1;
+    </script>
+    <script>
+        document.addEventListener('mousemove', () => {
+            document.getElementById("bgm").play();});
+    </script>
 
 </body>
 </html>

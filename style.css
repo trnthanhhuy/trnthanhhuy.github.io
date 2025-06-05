@@ -12,6 +12,10 @@
   filter: blur(12px); 
   transform: scale(1.05);
 }
+#clock{
+    font-size: 15px;
+    text-align: center;
+}
 *{
     margin: 0;
     padding: 0;
@@ -103,10 +107,6 @@ body{
     overflow-x: hidden;
     color: white;
 }
-#clock, #date{
-    display: none;
-}
-
 nav a{
     font-size: 1.8rem;
     color: white;
